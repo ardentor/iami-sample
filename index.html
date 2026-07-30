@@ -16,6 +16,7 @@
     --blue:#3b82f6; --blue-d:#1456f0; --pink:#ea5ec1;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden}
   body{
     background:var(--bg); color:var(--ink);
     font-family:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -49,9 +50,9 @@
   .price{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
   .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .row+.row{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-  .row .name{font-size:15px;font-weight:600}
+  .row .name{font-size:15px;font-weight:600;min-width:0;flex:1 1 auto}
   .row .note{display:block;font-size:12.5px;color:var(--sub);font-weight:500;margin-top:3px}
-  .row .val{font-size:19px;font-weight:800;white-space:nowrap}
+  .row .val{font-size:19px;font-weight:800;white-space:nowrap;flex:0 0 auto}
   .set .val{color:var(--pink)}
   .was{color:var(--sub);font-size:14px;font-weight:600;text-decoration:line-through;margin-right:7px}
 
@@ -60,7 +61,7 @@
   .gallery{margin-top:14px;display:flex;flex-direction:column;gap:12px}
   .gallery figure{position:relative}
   .gallery img{
-    width:100%;display:block;border-radius:10px;border:1px solid var(--line);
+    width:100%;max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);
     -webkit-user-drag:none;user-select:none;-webkit-touch-callout:none;pointer-events:none;
   }
   .num{
