@@ -93,6 +93,19 @@
   .steps b{display:block;font-size:15px;font-weight:700}
   .steps span{display:block;font-size:13.5px;color:var(--sub);margin-top:3px}
 
+  .acctbox{
+    margin-top:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px;
+  }
+  .acctbox .no{font-size:16.5px;font-weight:800}
+  .acctbox .who{font-size:13px;color:var(--sub);margin-top:4px}
+
+  .cta .alt{
+    display:block;max-width:520px;margin:9px auto 0;text-align:center;
+    background:transparent;border:1px solid var(--line);color:var(--ink);
+    text-decoration:none;font-size:14.5px;font-weight:700;padding:13px;border-radius:11px;
+  }
+
   .contact{margin-top:34px;font-size:13.5px;color:var(--sub);line-height:2}
   .contact a{color:var(--sub);text-decoration:none}
 
@@ -157,10 +170,14 @@
   <section>
     <h2>신청 방법</h2>
     <ol class="steps">
-      <li><b>상품 선택</b><span>아래 버튼을 누르면 신청서가 열립니다 (아엠아이브랜딩 노션 신청서)</span></li>
-      <li><b>입금</b><span>입금 계좌는 신청서 안에 안내되어 있습니다</span></li>
-      <li><b>「입금완료」 체크</b><span>확인 후 2시간 안에 메일로 보내드립니다</span></li>
+      <li><b>문자로 신청</b><span>아래 버튼을 누르면 신청 양식이 채워진 문자창이 열립니다. 빈칸만 채워 보내주세요.</span></li>
+      <li><b>입금</b><span>기업은행(IBK) 010-2025-2767 · 예금주 허우영</span></li>
+      <li><b>자료 받기</b><span>입금 확인 후 2시간 안에 메일로 보내드립니다</span></li>
     </ol>
+    <div class="acctbox">
+      <div class="no">기업은행(IBK) 010-2025-2767</div>
+      <div class="who">예금주 : 허우영</div>
+    </div>
   </section>
 
   <section>
@@ -185,9 +202,26 @@
 </div>
 
 <div class="cta">
-  <a href="https://narrow-polyester-40b.notion.site/3618b8506fcb8017bd75df4378a61f16?pvs=105">신청하러 가기</a>
+  <a id="smsBtn" href="#">문자로 신청하기</a>
+  <a class="alt" href="tel:01020252767">전화로 문의 · 010-2025-2767</a>
   <span class="sub">남성 8종은 8월 둘째 주 오픈 예정입니다</span>
 </div>
+
+<script>
+  (function(){
+    var body =
+      "[여성 퍼스널컬러 후자료 신청]\n" +
+      "성함 : \n" +
+      "업체 : \n" +
+      "받으실 이메일 : \n" +
+      "신청 상품 : \n" +
+      "  (예 : 봄 라이트 / 8종 세트)\n";
+    var enc = encodeURIComponent(body);
+    var ua = navigator.userAgent || "";
+    var sep = /iPhone|iPad|iPod|Macintosh/i.test(ua) ? "&" : "?";
+    document.getElementById("smsBtn").setAttribute("href", "sms:01020252767" + sep + "body=" + enc);
+  })();
+</script>
 
 <script>
   var g = document.getElementById('g');
